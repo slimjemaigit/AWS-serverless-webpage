@@ -17,15 +17,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Package Lambda Function
-        commands: 
-          -zip -r lambda_function.zip lambda_function.py
+        run: |
+          zip -j lambda_function.zip lambda_function.py
 
       - name: Deploy Lambda Function
-        commands: 
-          -aws lambda update-function-code \
+        run: |
+          aws lambda update-function-code \
             --function-name lambda_handler \
             --zip-file fileb://lambda_function.zip \
             --region eu-west-3 
+
 
     #- name: Deploy to S3
     #  uses: jakejarvis/s3-sync-action@master
