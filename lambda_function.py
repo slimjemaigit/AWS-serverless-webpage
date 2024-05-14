@@ -2,8 +2,8 @@ import json
 
 # Mock database (list of objects)
 DATABASE = [
-    {"id": 1, "name": "John"},
-    {"id": 2, "name": "Jane"},
+    {"id": 1, "name": "Slim"},
+    {"id": 2, "name": "karim"},
     {"id": 3, "name": "Alice"},
     {"id": 4, "name": "Bob"}
 ]

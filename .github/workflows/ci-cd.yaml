@@ -12,12 +12,22 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Package Lambda Function
+        run: |
+          zip -r lambda_function.zip lambda_function.py
 
-    - name: Deploy to S3
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --delete
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_S3_BUCKET: simple-cloud-project
+      - name: Deploy Lambda Function
+        run: |
+          aws lambda update-function-code \
+            --function-name lambda_handler \
+            --zip-file fileb://lambda_function.zip \
+            --region eu-west-3 
+
+    #- name: Deploy to S3
+    #  uses: jakejarvis/s3-sync-action@master
+    #  with:
+    #    args: --acl public-read --delete
+    #  env:
+    #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #    AWS_S3_BUCKET: simple-cloud-project
