@@ -12,6 +12,7 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_S3_BUCKET: simple-lambda-test-bucket
 
     steps:
     - name: Checkout code
@@ -27,12 +28,8 @@ jobs:
           --zip-file fileb://lambda_function.zip \
           --region eu-west-3 
 
-
-    #- name: Deploy to S3
-    #  uses: jakejarvis/s3-sync-action@master
-    #  with:
-    #    args: --acl public-read --delete
-    #  env:
-    #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #    AWS_S3_BUCKET: simple-cloud-project
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --delete
+   

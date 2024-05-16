@@ -4,7 +4,7 @@ import json
 DATABASE = [
     {"id": 1, "name": "Slim"},
     {"id": 2, "name": "karim"},
-    {"id": 3, "name": "Alice"},
+    {"id": 3, "name": "yasmine"},
     {"id": 4, "name": "Bob"}
 ]
 
