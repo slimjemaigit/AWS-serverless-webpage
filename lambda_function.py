@@ -2,10 +2,10 @@ import json
 
 # Mock database (list of objects)
 DATABASE = [
-    {"id": 1, "name": "Slim"},
-    {"id": 2, "name": "karim"},
-    {"id": 3, "name": "yasmine"},
-    {"id": 4, "name": "Bob"}
+    {"id": 1, "AWS services": "Lambda | API Gateway | S3 | Cloudwatch"},
+    {"id": 2, "Infrastructure": "Terraform"},
+    {"id": 3, "CICD pipeline": "Github actions"}
+    
 ]
 
 def lambda_handler(event, context):
