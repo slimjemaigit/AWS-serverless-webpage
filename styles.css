@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px; /* Optional: add some padding for better spacing */
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+img {
+    width: 700px; /* Adjust this value to make the image smaller */
+    height: auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#response {
+    white-space: pre-wrap; /* Preserve whitespace for new lines */
+    text-align: left; /* Align text to the left for better readability */
+    margin-top: 20px;
+}
